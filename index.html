@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script>
+/* global nn */
+  
+const GIF = 'butterfly.gif'
+const COLOR = 'plum'
+
+async function createGif (x, y) {
+  const gif = await nn.loadImage(GIF)
+  nn.create('img')
+  .set({ 
+    src: `${GIF}#${Math.random()}` 
+  })
+  .css({
+    position: 'absolute',
+    left: x - gif.width / 2,
+    top: y - gif.height / 2 
+  })
+  .addTo('body')
+}
+
+async function setup () {
+  nn.get('body').css({ backgroundColor: COLOR })
+  
+  const gif = await nn.loadImage(GIF)
+  
+  const colSize = gif.width / 4
+  const numCols = nn.width / colSize
+  const rowSize = gif.height / 4
+  const numRows = nn.height * 0.75 / rowSize
+  
+  for (let r = 0; r < numRows; r++) {
+    for (let c = 0; c < numCols; c++) {
+      const x = c * colSize
+      const y = r * rowSize
+      createGif(x, y)
+    }
+  }
+}
+
+nn.on('load', setup)
+
+</script>
