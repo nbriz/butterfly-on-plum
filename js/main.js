@@ -1,10 +1,10 @@
 /* global nn */
 const params = new URLSearchParams(location.search)
 
-let GIF = 'butterfly-yellow.gif'
+let GIF = '../images/butterfly-yellow.gif'
 const v = params.get('v')
 if (v === '1') {
-  GIF = 'butterfly-yellow.gif'
+  GIF = '../images/butterfly-yellow.gif'
 }
 
 const COLOR = 'plum'
