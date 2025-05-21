@@ -5,9 +5,8 @@ let GIF = 'butterfly-yellow.gif'
 const v = params.get('v')
 if (v === '1') {
   GIF = 'butterfly-yellow.gif'
-} else if (v === '2') {
-  GIF = 'butterfly-orange.gif'
 }
+
 const COLOR = 'plum'
 
 function createGif(x, y, w, h, url) {
